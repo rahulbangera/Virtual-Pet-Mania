@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet app</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <audio id="foodSound" src="audio/eating-sound-effect-36186.mp3" preload="auto"></audio>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="#" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="#">PROFILE</a>
+        </div>
+    </nav>
+    <main>
+        <div class="lefti">
+            <img id="petImage" src="images/inqubi-universe-dogg.png" alt="">
+        </div>
+        <div class="righti">
+            <h2>HELLO!!!</h2>
+            <H3>How are You DOING?</H3>
+            <div class="specbuttons">
+                <button id="feeder">Feed Me</button>
+                <button id="playy">Play</button>
+            </div>
+        </div>
+    </main>
+    <section class="pet-stats">
+        <h3>Pet Stats</h3>
+        <div class="stat-container">
+            <div class="status">
+                <div class="stat">
+                    <label for="happiness">
+                        <img src="images/happy.png" width="20px" alt="Happiness Icon"> Happiness
+                    </label>
+                    <br>
+                    <progress id="happiness" value="80" max="100"></progress>
+                </div>
+                <div class="stat">
+                    <label for="hunger">
+                        <img src="images/hunger.png" width="20px" alt="Hunger Icon"> Hunger
+                    </label>
+                    <br>
+                    <progress id="hunger" value="40" max="100"></progress>
+                </div>
+                <div class="stat">
+                    <label for="energy">
+                        <img src="images/thunderbolt.png" width="20px" alt="Energy Icon"> Energy
+                    </label>
+                    <br>
+                    <progress id="energy" value="60" max="100"></progress>
+                </div>
+            </div>
+        </div>
+    
+       
+    </section>
+    
+    <div id="feedingModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <div class="feeding-menu">
+                <h2>Select Food to Feed Your Pet</h2>
+                <div class="food-options">
+                    <div class="food-item" id="fish">
+                        <i class="fas fa-fish"></i>
+                        <p>Fish</p>
+                    </div>
+                    <div class="food-item" id="bone">
+                        <i class="fas fa-bone"></i>
+                        <p>Bone</p>
+                    </div>
+                    <div class="food-item" id="apple">
+                        <i class="fas fa-apple-alt"></i>
+                        <p>Apple</p>
+                    </div>
+                    <div class="food-item" id="carrot">
+                        <i class="fas fa-carrot"></i>
+                        <p>Carrot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        
+    <div class="chat-container">
+        <div id="chat-bubble" class="chat-bubble">
+            <img src="images/bubble-chat.png" alt="Chat Icon">
+            <p style="margin-left: 6px;">Chat with your pet 😊</p>
+        </div>
+    
+        <div id="chat-box" class="chat-box hidden">
+            <div class="chat-header">
+                <h4>Chat with Us!</h4>
+                <button id="close-chat" class="close-btn">X</button>
+            </div>
+            <div class="chat-body">
+                <p>Aww!! What's up boss?</p>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your message..." id="messageInput">
+                <button id="emoji-btn">😊</button> 
+                <button id="send-btn">Send</button> 
+            </div>
+            <div id="emoji-picker" class="emoji-pick hidden2">
+                <span class="emoji">😀</span>
+                <span class="emoji">😂</span>
+                <span class="emoji">😍</span>
+                <span class="emoji">🥳</span>
+                <span class="emoji">😎</span>
+                <span class="emoji">🤔</span>
+                <span class="emoji">🥺</span>
+            </div>
+        </div>
+    </div>
+    <section class="pet-profiles">
+        <h2>Visit Your Friends' Pets</h2>
+        <div class="profile-container">
+            <div class="pet-card">
+                <img src="images/inqubi-universe-pengwin.png" alt="Pet 1" class="pet-image">
+                <h3 class="pet-name">Fluffy</h3>
+                <p class="pet-breed">Breed: Golden Retriever</p>
+                <p class="pet-age">Age: 3 years</p>
+                <a href="#" class="visit-button">Visit Fluffy</a>
+            </div>
+            <div class="pet-card">
+                <img src="images/inqubi-universe-turtur.png" alt="Pet 2" class="pet-image">
+                <h3 class="pet-name">Whiskers</h3>
+                <p class="pet-breed">Breed: Persian Cat</p>
+                <p class="pet-age">Age: 2 years</p>
+                <a href="#" class="visit-button">Visit Whiskers</a>
+            </div>
+            <!-- Add more pet cards as needed -->
+        </div>
+    </section>
+    
+
+    <div class="games-hub">
+        <h2 class="hub-title">Mini Games Hub</h2>
+        <div class="games-grid">
+            <div class="game-tile" style="background-color: #FF6B6B;">
+                <img src="images/bagg.png" alt="Game 1">
+                <h3>Game 1</h3>
+            </div>
+            <div class="game-tile" style="background-color: #6BCB77;">
+                <img src="images/puzzlecat.png" alt="Game 2">
+                <h3>Game 2</h3>
+            </div>
+            <div class="game-tile" style="background-color: #FFD93D;">
+                <img src="images/petdash.png" alt="Game 3">
+                <h3>Game 3</h3>
+            </div>
+            <div class="game-tile" style="background-color: #4D96FF;">
+                <img src="images/petrun.png" alt="Game 4">
+                <h3>Game 4</h3>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#contact">Contact</a>
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#terms">Terms of Service</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -74,6 +74,7 @@ a{
     align-items: center;
     justify-content: flex-end;
     flex-grow: 1;
+    gap: 10px;
 }
 
 .left-nav .logo {

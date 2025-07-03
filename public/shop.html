@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Virtual Pet Mania</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="/" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="/games">GAMES</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/friends">FRIENDS</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+    
+    <main style="min-height: 80vh; padding: 20px;">
+        <div class="shop-content">
+            <h2 style="text-align: center; color: #2c5530; margin-bottom: 20px;">🛒 Pawsome Pet Shop 🛒</h2>
+            <div class="shop-header">
+                <p style="text-align: center; font-size: 1.2em; margin-bottom: 20px; color: #555;">
+                    Everything your pet needs to be happy! (And some things they just want because they're spoiled)
+                </p>
+                <div class="coins-display">
+                    💰 Your Coins: <span id="user-coins">100</span>
+                </div>
+            </div>
+            
+            <div class="shop-categories">
+                <div class="category-tabs">
+                    <button class="tab-button active" onclick="showCategory('food')">🍖 Food & Treats</button>
+                    <button class="tab-button" onclick="showCategory('toys')">🎾 Toys & Fun</button>
+                    <button class="tab-button" onclick="showCategory('accessories')">👑 Accessories</button>
+                    <button class="tab-button" onclick="showCategory('special')">✨ Special Items</button>
+                </div>
+                
+                <div id="food" class="category-content active">
+                    <h3>Food & Treats</h3>
+                    <div class="items-grid">
+                        <div class="shop-item">
+                            <div class="item-image">🍖</div>
+                            <h4>Premium Steak</h4>
+                            <p>"The good stuff! Makes me drool just thinking about it!"</p>
+                            <div class="item-stats">+30 Hunger, +15 Happiness</div>
+                            <div class="item-price">💰 50 coins</div>
+                            <button class="buy-button" onclick="buyItem('premium-steak', 50)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🧀</div>
+                            <h4>Mystery Cheese</h4>
+                            <p>"It's cheese! Or... is it? Either way, I want it!"</p>
+                            <div class="item-stats">+20 Hunger, +25 Happiness</div>
+                            <div class="item-price">💰 30 coins</div>
+                            <button class="buy-button" onclick="buyItem('mystery-cheese', 30)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🍪</div>
+                            <h4>Magical Treats</h4>
+                            <p>"These treats are so good, they might be illegal!"</p>
+                            <div class="item-stats">+15 Hunger, +30 Happiness</div>
+                            <div class="item-price">💰 40 coins</div>
+                            <button class="buy-button" onclick="buyItem('magical-treats', 40)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🥕</div>
+                            <h4>Organic Carrots</h4>
+                            <p>"Healthy! But I'd prefer bacon..."</p>
+                            <div class="item-stats">+18 Hunger, +5 Happiness</div>
+                            <div class="item-price">💰 15 coins</div>
+                            <button class="buy-button" onclick="buyItem('organic-carrots', 15)">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="toys" class="category-content">
+                    <h3>Toys & Fun</h3>
+                    <div class="items-grid">
+                        <div class="shop-item">
+                            <div class="item-image">🎾</div>
+                            <h4>Super Bouncy Ball</h4>
+                            <p>"This ball is so bouncy, I might bounce too!"</p>
+                            <div class="item-stats">+25 Happiness, -10 Energy</div>
+                            <div class="item-price">💰 35 coins</div>
+                            <button class="buy-button" onclick="buyItem('bouncy-ball', 35)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🧸</div>
+                            <h4>Cuddle Bear</h4>
+                            <p>"Finally, someone who understands my need for cuddles!"</p>
+                            <div class="item-stats">+20 Happiness, +10 Energy</div>
+                            <div class="item-price">💰 45 coins</div>
+                            <button class="buy-button" onclick="buyItem('cuddle-bear', 45)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🎯</div>
+                            <h4>Puzzle Toy</h4>
+                            <p>"I'm basically a genius, so this should be easy!"</p>
+                            <div class="item-stats">+30 Happiness, -5 Energy</div>
+                            <div class="item-price">💰 60 coins</div>
+                            <button class="buy-button" onclick="buyItem('puzzle-toy', 60)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🎪</div>
+                            <h4>Circus Hoop</h4>
+                            <p>"Time to show off my amazing jumping skills!"</p>
+                            <div class="item-stats">+35 Happiness, -20 Energy</div>
+                            <div class="item-price">💰 70 coins</div>
+                            <button class="buy-button" onclick="buyItem('circus-hoop', 70)">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="accessories" class="category-content">
+                    <h3>Accessories</h3>
+                    <div class="items-grid">
+                        <div class="shop-item">
+                            <div class="item-image">👑</div>
+                            <h4>Royal Crown</h4>
+                            <p>"Finally! Recognition of my royal status!"</p>
+                            <div class="item-stats">+50 Happiness (Permanent Style Boost)</div>
+                            <div class="item-price">💰 100 coins</div>
+                            <button class="buy-button" onclick="buyItem('royal-crown', 100)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🕶️</div>
+                            <h4>Cool Sunglasses</h4>
+                            <p>"Now I'm too cool for walkies... just kidding, I love walkies!"</p>
+                            <div class="item-stats">+25 Happiness (Style Points)</div>
+                            <div class="item-price">💰 55 coins</div>
+                            <button class="buy-button" onclick="buyItem('sunglasses', 55)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">🎩</div>
+                            <h4>Fancy Hat</h4>
+                            <p>"I look distinguished! Perfect for formal belly rubs!"</p>
+                            <div class="item-stats">+30 Happiness (Class +1)</div>
+                            <div class="item-price">💰 75 coins</div>
+                            <button class="buy-button" onclick="buyItem('fancy-hat', 75)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item">
+                            <div class="item-image">💎</div>
+                            <h4>Diamond Collar</h4>
+                            <p>"Bling bling! I'm fancier than most humans now!"</p>
+                            <div class="item-stats">+40 Happiness (Maximum Fancy)</div>
+                            <div class="item-price">💰 150 coins</div>
+                            <button class="buy-button" onclick="buyItem('diamond-collar', 150)">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="special" class="category-content">
+                    <h3>Special Items</h3>
+                    <div class="items-grid">
+                        <div class="shop-item rare">
+                            <div class="item-image">🌟</div>
+                            <h4>Happiness Potion</h4>
+                            <p>"Instant joy in a bottle! Side effects may include excessive tail wagging!"</p>
+                            <div class="item-stats">Happiness = 100% (Instant)</div>
+                            <div class="item-price">💰 200 coins</div>
+                            <button class="buy-button" onclick="buyItem('happiness-potion', 200)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item legendary">
+                            <div class="item-image">🦄</div>
+                            <h4>Unicorn Horn</h4>
+                            <p>"Makes me magical! Or at least more sparkly!"</p>
+                            <div class="item-stats">All Stats +20 (Permanent)</div>
+                            <div class="item-price">💰 500 coins</div>
+                            <button class="buy-button" onclick="buyItem('unicorn-horn', 500)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item rare">
+                            <div class="item-image">⚡</div>
+                            <h4>Energy Drink</h4>
+                            <p>"ZOOMIES FOREVER! Warning: May cause hyperactivity!"</p>
+                            <div class="item-stats">Energy = 100% (Instant)</div>
+                            <div class="item-price">💰 180 coins</div>
+                            <button class="buy-button" onclick="buyItem('energy-drink', 180)">Buy Now</button>
+                        </div>
+                        
+                        <div class="shop-item legendary">
+                            <div class="item-image">🍀</div>
+                            <h4>Lucky Clover</h4>
+                            <p>"Double coin income! My luck is finally changing!"</p>
+                            <div class="item-stats">2x Coin Multiplier (24h)</div>
+                            <div class="item-price">💰 300 coins</div>
+                            <button class="buy-button" onclick="buyItem('lucky-clover', 300)">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="back-home" style="text-align: center; margin-top: 40px;">
+                <a href="/" class="home-button">🏠 Back Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/friends">Friends</a>
+                <a href="/shop">Pet Shop</a>
+                <a href="/games">Games</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        let userCoins = 100;
+        
+        // Load user coins from backend
+        async function loadUserCoins() {
+            try {
+                const response = await fetch('/api/pet/status');
+                const petData = await response.json();
+                userCoins = petData.coins;
+                document.getElementById('user-coins').textContent = userCoins;
+            } catch (error) {
+                console.error('Failed to load user coins:', error);
+            }
+        }
+        
+        function showCategory(categoryId) {
+            // Hide all categories
+            document.querySelectorAll('.category-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(categoryId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+        
+        function buyItem(itemId, price) {
+            if (userCoins >= price) {
+                userCoins -= price;
+                document.getElementById('user-coins').textContent = userCoins;
+                
+                const itemNames = {
+                    'premium-steak': 'Premium Steak',
+                    'mystery-cheese': 'Mystery Cheese',
+                    'magical-treats': 'Magical Treats',
+                    'organic-carrots': 'Organic Carrots',
+                    'bouncy-ball': 'Super Bouncy Ball',
+                    'cuddle-bear': 'Cuddle Bear',
+                    'puzzle-toy': 'Puzzle Toy',
+                    'circus-hoop': 'Circus Hoop',
+                    'royal-crown': 'Royal Crown',
+                    'sunglasses': 'Cool Sunglasses',
+                    'fancy-hat': 'Fancy Hat',
+                    'diamond-collar': 'Diamond Collar',
+                    'happiness-potion': 'Happiness Potion',
+                    'unicorn-horn': 'Unicorn Horn',
+                    'energy-drink': 'Energy Drink',
+                    'lucky-clover': 'Lucky Clover'
+                };
+                
+                const responses = [
+                    `YES! I got ${itemNames[itemId]}! This is the best day EVER!`,
+                    `OMG! ${itemNames[itemId]}! I'm so happy I could do zoomies all day!`,
+                    `Thank you! ${itemNames[itemId]} is exactly what I needed! You're the best human!`,
+                    `WOW! ${itemNames[itemId]}! I promise to treasure it forever... or until dinner time!`,
+                    `${itemNames[itemId]}?! For me?! I must be the luckiest pet in the universe!`
+                ];
+                
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                
+                const purchaseDiv = document.createElement('div');
+                purchaseDiv.className = 'purchase-popup';
+                purchaseDiv.innerHTML = `
+                    <div class="popup-content">
+                        <h3>🎉 Purchase Successful!</h3>
+                        <p>${randomResponse}</p>
+                        <p style="margin-top: 15px; color: #666;">Remaining coins: ${userCoins}</p>
+                        <button onclick="this.parentElement.parentElement.remove()">Awesome!</button>
+                    </div>
+                `;
+                document.body.appendChild(purchaseDiv);
+                
+            } else {
+                const sadResponses = [
+                    "Aww, I don't have enough coins! Time to earn more by being extra cute!",
+                    "Not enough coins! But that's okay, I'll just stare at you with my big sad eyes...",
+                    "I'm broke! Maybe if I do some tricks, you'll give me more coins?",
+                    "No money, no problem! I'll just dream about it... *sad puppy eyes*"
+                ];
+                
+                const randomSadResponse = sadResponses[Math.floor(Math.random() * sadResponses.length)];
+                
+                const noCoinsDiv = document.createElement('div');
+                noCoinsDiv.className = 'purchase-popup';
+                noCoinsDiv.innerHTML = `
+                    <div class="popup-content">
+                        <h3>😢 Not Enough Coins</h3>
+                        <p>${randomSadResponse}</p>
+                        <p style="margin-top: 15px; color: #666;">You need ${price} coins but only have ${userCoins}</p>
+                        <button onclick="this.parentElement.parentElement.remove()">I'll earn more!</button>
+                    </div>
+                `;
+                document.body.appendChild(noCoinsDiv);
+            }
+        }
+        
+        // Load coins when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadUserCoins);
+        } else {
+            loadUserCoins();
+        }
+    </script>
+    
+    <style>
+        .shop-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .shop-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .coins-display {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 1.3em;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 12px 25px;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: #666;
+        }
+        
+        .tab-button.active {
+            background: var(--maincolor);
+            color: white;
+        }
+        
+        .tab-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .category-content {
+            display: none;
+        }
+        
+        .category-content.active {
+            display: block;
+        }
+        
+        .category-content h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--maincolor);
+        }
+        
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .shop-item {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            border: 3px solid transparent;
+        }
+        
+        .shop-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .shop-item.rare {
+            border-color: #9b59b6;
+            background: linear-gradient(135deg, #fff, #f8f6ff);
+        }
+        
+        .shop-item.legendary {
+            border-color: #f39c12;
+            background: linear-gradient(135deg, #fff, #fffbf0);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shop-item.legendary::before {
+            content: '✨';
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            animation: sparkle 2s infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        .item-image {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .shop-item h4 {
+            margin-bottom: 10px;
+            color: var(--maincolor);
+            font-size: 1.3em;
+        }
+        
+        .shop-item p {
+            font-style: italic;
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        .item-stats {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        .item-price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #f39c12;
+            margin-bottom: 15px;
+        }
+        
+        .buy-button {
+            background: var(--maincolor);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+            font-size: 1.1em;
+        }
+        
+        .buy-button:hover {
+            background: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--maincolor);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        .purchase-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .popup-content button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: var(--maincolor);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .popup-content button:hover {
+            background-color: #5a9f5d;
+        }
+        
+        @media (max-width: 768px) {
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 200px;
+            }
+            
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

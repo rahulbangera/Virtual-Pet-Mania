@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friends - Virtual Pet Mania</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="/" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="/games">GAMES</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/friends">FRIENDS</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+    
+    <main style="min-height: 80vh; padding: 20px;">
+        <div class="friends-content">
+            <h2 style="text-align: center; color: #2c5530; margin-bottom: 30px;">🐾 Pet Friends Network 🐾</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px; color: #555;">
+                Meet other amazing pets and their quirky personalities! (Warning: May cause excessive cuteness)
+            </p>
+            
+            <div class="friends-grid">
+                <div class="pet-card">
+                    <img src="images/inqubi-universe-pengwin.png" alt="Fluffy" class="pet-image">
+                    <div class="pet-info">
+                        <h3 class="pet-name">Fluffy McFlufferson</h3>
+                        <p class="pet-breed">Golden Retriever</p>
+                        <p class="pet-age">Age: 3 years</p>
+                        <p class="pet-status">Status: Currently chasing a butterfly</p>
+                        <div class="pet-quote">"I'm not spoiled, I'm just well-loved! Also, where are my treats?"</div>
+                        <div class="pet-stats-mini">
+                            <span>😊 95%</span>
+                            <span>🍖 30%</span>
+                            <span>⚡ 70%</span>
+                        </div>
+                        <button class="visit-button" onclick="visitPet('fluffy')">Visit Fluffy</button>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/inqubi-universe-turtur.png" alt="Whiskers" class="pet-image">
+                    <div class="pet-info">
+                        <h3 class="pet-name">Sir Whiskers III</h3>
+                        <p class="pet-breed">Persian Cat</p>
+                        <p class="pet-age">Age: 2 years</p>
+                        <p class="pet-status">Status: Judging everyone silently</p>
+                        <div class="pet-quote">"I am not fat, I am just... horizontally enhanced. Now bring me tuna."</div>
+                        <div class="pet-stats-mini">
+                            <span>😊 85%</span>
+                            <span>🍖 60%</span>
+                            <span>⚡ 20%</span>
+                        </div>
+                        <button class="visit-button" onclick="visitPet('whiskers')">Visit Whiskers</button>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/inqubi-universe-dogg.png" alt="Zoomie" class="pet-image">
+                    <div class="pet-info">
+                        <h3 class="pet-name">Zoomie the Fast</h3>
+                        <p class="pet-breed">Border Collie</p>
+                        <p class="pet-age">Age: 1 year</p>
+                        <p class="pet-status">Status: ZOOMIES ACTIVATED!</p>
+                        <div class="pet-quote">"Fast? I'm not fast, I'm LIGHTNING! ⚡ Did you see that squirrel?!"</div>
+                        <div class="pet-stats-mini">
+                            <span>😊 100%</span>
+                            <span>🍖 80%</span>
+                            <span>⚡ 40%</span>
+                        </div>
+                        <button class="visit-button" onclick="visitPet('zoomie')">Visit Zoomie</button>
+                    </div>
+                </div>
+                
+                <div class="pet-card">
+                    <img src="images/inqubi-universe-pengwin.png" alt="Sleepy" class="pet-image">
+                    <div class="pet-info">
+                        <h3 class="pet-name">Sleepy McSnooze</h3>
+                        <p class="pet-breed">Basset Hound</p>
+                        <p class="pet-age">Age: 5 years</p>
+                        <p class="pet-status">Status: Permanent nap mode</p>
+                        <div class="pet-quote">"Zzz... What? Oh, it's not dinner time yet? Zzz..."</div>
+                        <div class="pet-stats-mini">
+                            <span>😊 75%</span>
+                            <span>🍖 90%</span>
+                            <span>⚡ 10%</span>
+                        </div>
+                        <button class="visit-button" onclick="visitPet('sleepy')">Visit Sleepy</button>
+                    </div>
+                </div>
+                
+                <div class="pet-card special-card">
+                    <div class="add-friend-content">
+                        <div class="add-friend-icon">➕</div>
+                        <h3>Make New Friends!</h3>
+                        <p>Connect with other pet owners and expand your social circle!</p>
+                        <button class="add-friend-button" onclick="addFriend()">Find Friends</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="social-features">
+                <h3>Social Features</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🎁</div>
+                        <h4>Send Gifts</h4>
+                        <p>Send treats and toys to your pet friends!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📸</div>
+                        <h4>Photo Sharing</h4>
+                        <p>Share cute photos of your pet's adventures!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🏆</div>
+                        <h4>Competitions</h4>
+                        <p>Join friendly competitions and win prizes!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💬</div>
+                        <h4>Pet Chat</h4>
+                        <p>Let your pets chat with each other! (Results may vary)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="back-home" style="text-align: center; margin-top: 40px;">
+                <a href="/" class="home-button">🏠 Back Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/friends">Friends</a>
+                <a href="/shop">Pet Shop</a>
+                <a href="/games">Games</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        function visitPet(petName) {
+            const messages = {
+                fluffy: "Fluffy is super excited to see you! *tail wagging intensifies* 'Do you have treats? Please say you have treats!'",
+                whiskers: "Sir Whiskers acknowledges your presence with a slow blink. 'You may pet me... if you're worthy.'",
+                zoomie: "ZOOMIE ALERT! Zoomie is running circles around you! 'FRIEND! FRIEND! FRIEND! Let's play fetch!'",
+                sleepy: "Sleepy opens one eye slowly... 'Oh hey... nice to see you... mind if I continue my nap?' *snores*"
+            };
+            
+            const visitDiv = document.createElement('div');
+            visitDiv.className = 'visit-popup';
+            visitDiv.innerHTML = `
+                <div class="popup-content">
+                    <h3>🐾 Visiting ${petName.charAt(0).toUpperCase() + petName.slice(1)}</h3>
+                    <p>${messages[petName]}</p>
+                    <div class="visit-actions">
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()">Give Treats</button>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()">Play Together</button>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()">Say Goodbye</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(visitDiv);
+        }
+        
+        function addFriend() {
+            const friendNames = [
+                "Captain Biscuit", "Princess Pawsalot", "Sir Barkington", 
+                "Fluffy McFluff", "Zoomie Supreme", "Snuggle Monster",
+                "The Treat Destroyer", "Belly Rub Enthusiast"
+            ];
+            
+            const randomName = friendNames[Math.floor(Math.random() * friendNames.length)];
+            
+            const addFriendDiv = document.createElement('div');
+            addFriendDiv.className = 'visit-popup';
+            addFriendDiv.innerHTML = `
+                <div class="popup-content">
+                    <h3>🎉 New Friend Request!</h3>
+                    <p>${randomName} wants to be friends! They say: "Woof! Let's be best buddies and share treats!"</p>
+                    <div class="visit-actions">
+                        <button onclick="acceptFriend('${randomName}')">Accept Friend</button>
+                        <button onclick="this.parentElement.parentElement.parentElement.remove()">Maybe Later</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(addFriendDiv);
+        }
+        
+        function acceptFriend(name) {
+            alert(`🎉 Congratulations! You're now friends with ${name}! They're doing a happy dance right now!`);
+            document.querySelector('.visit-popup').remove();
+        }
+    </script>
+    
+    <style>
+        .friends-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .friends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .pet-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .pet-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .pet-info {
+            padding: 25px;
+        }
+        
+        .pet-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: var(--maincolor);
+        }
+        
+        .pet-breed, .pet-age {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .pet-status {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        
+        .pet-quote {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            font-style: italic;
+            margin: 15px 0;
+            border-left: 4px solid var(--maincolor);
+        }
+        
+        .pet-stats-mini {
+            display: flex;
+            gap: 15px;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        
+        .visit-button {
+            background: var(--maincolor);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            width: 100%;
+        }
+        
+        .visit-button:hover {
+            background: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        .special-card {
+            background: linear-gradient(135deg, #74c442, #5a9f34);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .add-friend-content {
+            text-align: center;
+            padding: 40px 25px;
+        }
+        
+        .add-friend-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .add-friend-button {
+            background: white;
+            color: var(--maincolor);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .add-friend-button:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+        
+        .social-features {
+            background: rgba(116, 196, 42, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .social-features h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--maincolor);
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h4 {
+            margin-bottom: 10px;
+            color: var(--maincolor);
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--maincolor);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        .visit-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+        
+        .visit-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+        
+        .visit-actions button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .visit-actions button:first-child {
+            background: var(--maincolor);
+            color: white;
+        }
+        
+        .visit-actions button:not(:first-child) {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .visit-actions button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</body>
+</html>

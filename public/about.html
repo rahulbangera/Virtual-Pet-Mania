@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Virtual Pet Mania</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="/" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="/games">GAMES</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/friends">FRIENDS</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+    
+    <main style="min-height: 80vh; padding: 20px;">
+        <div class="about-content">
+            <h2 style="text-align: center; color: #2c5530; margin-bottom: 30px;">📖 About Virtual Pet Mania 📖</h2>
+            
+            <div class="about-hero">
+                <div class="hero-text">
+                    <h3>Welcome to the Most PAWsome Experience Ever!</h3>
+                    <p>
+                        Virtual Pet Mania isn't just a game - it's a whole new way of life! Here, you'll meet 
+                        the most hilarious, demanding, and loveable virtual pet you've ever encountered. 
+                        Get ready for belly laughs, heartwarming moments, and the occasional "Why did I agree to this?" moment!
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <img src="images/inqubi-universe-dogg.png" alt="Our Mascot" style="width: 200px; border-radius: 50%;">
+                </div>
+            </div>
+            
+            <div class="features-section">
+                <h3>What Makes Us Special?</h3>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">😂</div>
+                        <h4>Hilariously Honest Pets</h4>
+                        <p>Your pet will tell you EXACTLY what they think. Spoiler alert: They think you're great, but your treat-giving skills need work.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎮</div>
+                        <h4>Addictive Mini-Games</h4>
+                        <p>From "Mega Fetch" to "Zoomie Dash" - games so fun, your pet might actually get tired! (Kidding, they have infinite energy.)</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🛒</div>
+                        <h4>Ridiculous Shopping</h4>
+                        <p>Buy everything from "Mystery Cheese" to "Unicorn Horns." Because why shouldn't your pet be more stylish than you?</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h4>Social Pet Network</h4>
+                        <p>Meet other pets with questionable life choices and even more questionable fashion sense. It's like social media, but furrier!</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h4>Real-Time Stats</h4>
+                        <p>Watch your pet's happiness, hunger, and energy levels. Warning: They may guilt-trip you when stats are low.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎭</div>
+                        <h4>Personality Plus</h4>
+                        <p>Each interaction reveals more of your pet's unique personality. Prepare for sass, charm, and the occasional existential crisis.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="story-section">
+                <h3>Our Story</h3>
+                <div class="story-content">
+                    <div class="story-text">
+                        <p>
+                            Virtual Pet Mania was born from a simple question: "What if virtual pets were actually funny?" 
+                            After months of research (mostly watching pet videos), we realized that the best pets aren't 
+                            just cute - they're hilarious, demanding, and have opinions about EVERYTHING.
+                        </p>
+                        <p>
+                            Our team of dedicated pet enthusiasts and slightly crazy developers worked tirelessly to 
+                            create a virtual pet experience that feels real, entertaining, and occasionally overwhelming 
+                            (just like real pets!).
+                        </p>
+                        <blockquote>
+                            "I wanted to create something that would make people laugh every day. Mission accomplished! 
+                            My virtual pet now has more personality than most people I know." 
+                            <br><em>- Rahul N Bangera, Creator</em>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-section">
+                <h3>By the Numbers</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">🏆 Winner</div>
+                        <div class="stat-label">Runner Up at Design4Dev Event</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Hours of Entertainment (Not Guaranteed)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Chance Your Pet Will Judge You</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">Different Ways to Say "I'm Hungry"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Q: Will my virtual pet actually judge me?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: Absolutely! Your pet has opinions about your life choices, your fashion sense, and especially your treat-distribution schedule. But don't worry, they still love you!
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Q: Is this game suitable for adults?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: Perfect for adults! Finally, a pet that won't chew your shoes, wake you up at 3 AM, or cost you a fortune in vet bills. All the fun, none of the responsibility!
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Q: Can I have multiple pets?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: Currently, we focus on giving you the best single-pet experience. Trust us, one sassy virtual pet is enough to keep you busy!
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Q: What happens if I neglect my pet?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: Your pet will give you the silent treatment, followed by passive-aggressive comments about "some humans" who "forget their responsibilities." Don't worry, they're very forgiving... eventually.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFAQ(this)">
+                            <span>Q: Is this better than a real pet?</span>
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            A: We're not saying it's BETTER than a real pet, but it's definitely more convenient! No cleanup, no vet bills, and it won't judge you for eating ice cream for breakfast... much.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="credits-section">
+                <h3>Credits & Thanks</h3>
+                <div class="credits-content">
+                    <p><strong>Created by:</strong> Rahul N Bangera</p>
+                    <p><strong>Event:</strong> Design4Dev (Runner Up! 🏆)</p>
+                    <p><strong>Special Thanks:</strong> To all the real pets who inspired this project by being adorably demanding</p>
+                    <p><strong>Powered by:</strong> Love, caffeine, and an unhealthy obsession with pet memes</p>
+                </div>
+            </div>
+            
+            <div class="back-home" style="text-align: center; margin-top: 40px;">
+                <a href="/" class="home-button">🏠 Back to Your Pet</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/friends">Friends</a>
+                <a href="/shop">Pet Shop</a>
+                <a href="/games">Games</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            if (answer.style.display === 'block') {
+                answer.style.display = 'none';
+                toggle.textContent = '+';
+                element.classList.remove('active');
+            } else {
+                // Close all other FAQs
+                document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
+                document.querySelectorAll('.faq-toggle').forEach(tog => tog.textContent = '+');
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+                
+                // Open this FAQ
+                answer.style.display = 'block';
+                toggle.textContent = '-';
+                element.classList.add('active');
+            }
+        }
+    </script>
+    
+    <style>
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+            background: rgba(116, 196, 42, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+        }
+        
+        .hero-text h3 {
+            color: var(--maincolor);
+            margin-bottom: 20px;
+        }
+        
+        .hero-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .hero-image {
+            text-align: center;
+        }
+        
+        .features-section, .story-section, .stats-section, .faq-section, .credits-section {
+            margin-bottom: 50px;
+        }
+        
+        .features-section h3, .story-section h3, .stats-section h3, .faq-section h3, .credits-section h3 {
+            text-align: center;
+            color: var(--maincolor);
+            margin-bottom: 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h4 {
+            color: var(--maincolor);
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .feature-card p {
+            line-height: 1.5;
+            color: #666;
+        }
+        
+        .story-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .story-text p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        blockquote {
+            background: #f8f9fa;
+            padding: 25px;
+            border-left: 5px solid var(--maincolor);
+            border-radius: 10px;
+            font-style: italic;
+            margin: 30px 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--maincolor);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1em;
+            color: #666;
+        }
+        
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+        
+        .faq-question.active {
+            background: var(--maincolor);
+            color: white;
+        }
+        
+        .faq-toggle {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            line-height: 1.6;
+            color: #555;
+        }
+        
+        .credits-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .credits-content p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--maincolor);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .faq-question {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+</html>

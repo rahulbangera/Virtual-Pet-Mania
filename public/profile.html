@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Virtual Pet Mania</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="/" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="/games">GAMES</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/friends">FRIENDS</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+    
+    <main style="min-height: 80vh; padding: 20px;">
+        <div class="profile-content">
+            <h2 style="text-align: center; color: #2c5530; margin-bottom: 30px;">🐕 Pet Profile & Stats 🐕</h2>
+            
+            <div class="profile-layout">
+                <div class="pet-photo-section">
+                    <div class="pet-avatar">
+                        <img id="pet-avatar" src="images/inqubi-universe-dogg.png" alt="Your Pet">
+                        <div class="pet-level">Level <span id="pet-level">1</span></div>
+                    </div>
+                    <h3 id="pet-name">Buddy</h3>
+                    <p id="pet-mood" style="font-style: italic;">Feeling excited!</p>
+                    <div class="pet-coins">
+                        💰 <span id="pet-coins">100</span> coins
+                    </div>
+                </div>
+                
+                <div class="pet-details-section">
+                    <div class="stats-panel">
+                        <h3>Current Stats</h3>
+                        <div class="stat-row">
+                            <div class="stat">
+                                <label for="happiness-profile">
+                                    <img src="images/happy.png" width="20px" alt="Happiness Icon"> Happiness
+                                </label>
+                                <progress id="happiness-profile" value="80" max="100"></progress>
+                                <span id="happiness-value">80%</span>
+                            </div>
+                            <div class="stat">
+                                <label for="hunger-profile">
+                                    <img src="images/hunger.png" width="20px" alt="Hunger Icon"> Hunger
+                                </label>
+                                <progress id="hunger-profile" value="40" max="100"></progress>
+                                <span id="hunger-value">40%</span>
+                            </div>
+                            <div class="stat">
+                                <label for="energy-profile">
+                                    <img src="images/thunderbolt.png" width="20px" alt="Energy Icon"> Energy
+                                </label>
+                                <progress id="energy-profile" value="60" max="100"></progress>
+                                <span id="energy-value">60%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="achievements-panel">
+                        <h3>Achievements</h3>
+                        <div class="achievement-grid">
+                            <div class="achievement earned">
+                                <div class="achievement-icon">🍖</div>
+                                <div class="achievement-name">First Meal</div>
+                                <div class="achievement-desc">Fed your pet for the first time!</div>
+                            </div>
+                            <div class="achievement earned">
+                                <div class="achievement-icon">🎾</div>
+                                <div class="achievement-name">Play Time</div>
+                                <div class="achievement-desc">Played your first game!</div>
+                            </div>
+                            <div class="achievement locked">
+                                <div class="achievement-icon">🌟</div>
+                                <div class="achievement-name">Level 5</div>
+                                <div class="achievement-desc">Reach level 5</div>
+                            </div>
+                            <div class="achievement locked">
+                                <div class="achievement-icon">💯</div>
+                                <div class="achievement-name">Perfect Pet</div>
+                                <div class="achievement-desc">Max out all stats!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pet-quotes-section">
+                <h3>Pet's Diary</h3>
+                <div class="diary-entries">
+                    <div class="diary-entry">
+                        <div class="diary-date">Today</div>
+                        <div class="diary-text" id="current-quote">"Loading my thoughts..."</div>
+                    </div>
+                    <div class="diary-entry">
+                        <div class="diary-date">Yesterday</div>
+                        <div class="diary-text">"Had the BEST day ever! My human threw the ball and I caught it! Well, I tried to catch it..."</div>
+                    </div>
+                    <div class="diary-entry">
+                        <div class="diary-date">2 days ago</div>
+                        <div class="diary-text">"Discovered that my tail follows me everywhere. Very suspicious. Investigation ongoing."</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="back-home" style="text-align: center; margin-top: 40px;">
+                <a href="/" class="home-button">🏠 Back Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/friends">Friends</a>
+                <a href="/shop">Pet Shop</a>
+                <a href="/games">Games</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Load profile data
+        async function loadProfileData() {
+            try {
+                const response = await fetch('/api/pet/status');
+                const petData = await response.json();
+                
+                // Update profile info
+                document.getElementById('pet-name').textContent = petData.name;
+                document.getElementById('pet-level').textContent = petData.level;
+                document.getElementById('pet-coins').textContent = petData.coins;
+                document.getElementById('pet-mood').textContent = `Feeling ${petData.mood}!`;
+                
+                // Update progress bars
+                document.getElementById('happiness-profile').value = petData.happiness;
+                document.getElementById('hunger-profile').value = petData.hunger;
+                document.getElementById('energy-profile').value = petData.energy;
+                
+                // Update percentage displays
+                document.getElementById('happiness-value').textContent = petData.happiness + '%';
+                document.getElementById('hunger-value').textContent = petData.hunger + '%';
+                document.getElementById('energy-value').textContent = petData.energy + '%';
+                
+            } catch (error) {
+                console.error('Failed to load profile data:', error);
+            }
+        }
+        
+        // Load funny quote
+        async function loadCurrentQuote() {
+            try {
+                const response = await fetch('/api/pet/quote');
+                const data = await response.json();
+                document.getElementById('current-quote').textContent = `"${data.quote}"`;
+            } catch (error) {
+                console.error('Failed to load quote:', error);
+            }
+        }
+        
+        // Load data when page loads
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                loadProfileData();
+                loadCurrentQuote();
+            });
+        } else {
+            loadProfileData();
+            loadCurrentQuote();
+        }
+    </script>
+    
+    <style>
+        .profile-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .pet-photo-section {
+            text-align: center;
+            background: rgba(116, 196, 42, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        
+        .pet-avatar {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .pet-avatar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--maincolor);
+            object-fit: cover;
+        }
+        
+        .pet-level {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: var(--maincolor);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+        
+        .pet-coins {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #f39c12;
+            margin-top: 10px;
+        }
+        
+        .stats-panel, .achievements-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-row .stat {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .stat-row progress {
+            flex-grow: 1;
+            height: 25px;
+        }
+        
+        .stat-row span {
+            font-weight: bold;
+            min-width: 40px;
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .achievement {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .achievement.earned {
+            background: linear-gradient(135deg, #74c442, #5a9f34);
+            color: white;
+        }
+        
+        .achievement.locked {
+            background: #f0f0f0;
+            color: #999;
+        }
+        
+        .achievement:hover {
+            transform: scale(1.05);
+        }
+        
+        .achievement-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .achievement-desc {
+            font-size: 0.9em;
+        }
+        
+        .pet-quotes-section {
+            background: rgba(116, 196, 42, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .diary-entries {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .diary-entry {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--maincolor);
+        }
+        
+        .diary-date {
+            font-weight: bold;
+            color: var(--maincolor);
+            margin-bottom: 8px;
+        }
+        
+        .diary-text {
+            font-style: italic;
+            line-height: 1.4;
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--maincolor);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .profile-layout {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-row .stat {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 8px;
+            }
+        }
+    </style>
+</body>
+</html>

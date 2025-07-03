@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games - Virtual Pet Mania</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Oswald:wght@200..700&display=swap');
+        *{
+            font-family: 'Oswald';
+        }
+        h2, h3{
+            margin: 4px;
+            font-size: 2.7rem;
+            font-family: Inconsolata;
+        }
+        </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1b792d3ec8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left-nav">
+            <a href="/" class="logo">Virtual Pet Mania</a>
+        </div>
+        <div class="right-nav">
+            <a href="/games">GAMES</a>
+            <a href="/profile">PROFILE</a>
+            <a href="/friends">FRIENDS</a>
+            <a href="/shop">SHOP</a>
+            <a href="/about">ABOUT</a>
+        </div>
+    </nav>
+    
+    <main style="min-height: 80vh; padding: 20px;">
+        <div class="games-page-content">
+            <h2 style="text-align: center; color: #2c5530; margin-bottom: 30px;">🎮 PAWsome Games Zone! 🎮</h2>
+            <p style="text-align: center; font-size: 1.2em; margin-bottom: 40px; color: #555;">
+                Ready to have some fun? These games will make your pet SUPER happy! (And maybe a little tired...)
+            </p>
+            
+            <div class="games-grid">
+                <div class="game-tile clickable-game" data-game="fetch" style="background-color: #FF6B6B;">
+                    <img src="images/bagg.png" alt="Fetch Game">
+                    <h3>Mega Fetch</h3>
+                    <p>"Throw the ball! I'll catch it! Maybe..."</p>
+                    <div class="game-stats">Energy: -15 | Happiness: +25</div>
+                </div>
+                <div class="game-tile clickable-game" data-game="puzzle" style="background-color: #6BCB77;">
+                    <img src="images/puzzlecat.png" alt="Puzzle Game">
+                    <h3>Brain Teaser</h3>
+                    <p>"I'm basically Einstein with fur!"</p>
+                    <div class="game-stats">Energy: -5 | Happiness: +15</div>
+                </div>
+                <div class="game-tile clickable-game" data-game="dash" style="background-color: #FFD93D;">
+                    <img src="images/petdash.png" alt="Pet Dash">
+                    <h3>Zoomie Dash</h3>
+                    <p>"ZOOMIES! I'm so fast I'm invisible!"</p>
+                    <div class="game-stats">Energy: -20 | Happiness: +30</div>
+                </div>
+                <div class="game-tile clickable-game" data-game="run" style="background-color: #4D96FF;">
+                    <img src="images/petrun.png" alt="Pet Run">
+                    <h3>Squirrel Chase</h3>
+                    <p>"Running is great! Especially chasing squirrels!"</p>
+                    <div class="game-stats">Energy: -25 | Happiness: +20</div>
+                </div>
+            </div>
+            
+            <div class="back-home" style="text-align: center; margin-top: 40px;">
+                <a href="/" class="home-button">🏠 Back to Pet</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/about">About Us</a>
+                <a href="/friends">Friends</a>
+                <a href="/shop">Pet Shop</a>
+                <a href="/games">Games</a>
+            </div>
+            <p>&copy; 2024 Virtual Pet Mania. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Game interaction functionality
+        document.querySelectorAll('.clickable-game').forEach(gameDiv => {
+            gameDiv.addEventListener('click', async () => {
+                const gameType = gameDiv.dataset.game;
+                gameDiv.style.transform = 'scale(0.95)';
+                
+                try {
+                    const response = await fetch('/api/pet/play', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ gameType: gameType })
+                    });
+                    
+                    const result = await response.json();
+                    
+                    // Show game result
+                    const resultDiv = document.createElement('div');
+                    resultDiv.className = 'game-result-popup';
+                    resultDiv.innerHTML = `
+                        <div class="popup-content">
+                            <h3>🎉 Game Complete!</h3>
+                            <p>${result.message}</p>
+                            <button onclick="this.parentElement.parentElement.remove()">Awesome!</button>
+                        </div>
+                    `;
+                    document.body.appendChild(resultDiv);
+                    
+                    setTimeout(() => {
+                        gameDiv.style.transform = 'scale(1)';
+                    }, 200);
+                    
+                } catch (error) {
+                    console.error('Game failed:', error);
+                    alert('Oops! Game crashed. But hey, that was fun too!');
+                    gameDiv.style.transform = 'scale(1)';
+                }
+            });
+        });
+    </script>
+    
+    <style>
+        .games-page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .clickable-game {
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .clickable-game:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .game-stats {
+            font-size: 0.9em;
+            color: #333;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .home-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--maincolor);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .home-button:hover {
+            background-color: #5a9f5d;
+            transform: scale(1.05);
+        }
+        
+        .game-result-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .popup-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .popup-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--maincolor);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+        
+        .popup-content button:hover {
+            background-color: #5a9f5d;
+        }
+    </style>
+</body>
+</html>
